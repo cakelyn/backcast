@@ -1,7 +1,6 @@
 var Videos = Backbone.Collection.extend({
 
   model: Video,
-  collection: window.exampleVideoData,
   url: 'https://www.googleapis.com/youtube/v3/search',
 
   search: function(query) {
