@@ -1,15 +1,14 @@
 var AppView = Backbone.View.extend({
 
   el: '#app',
-  collection: window.exampleVideoData,
 
   initialize: function() {
     this.videos = new Videos(this.collection);
 
     this.listenTo(this.videos, 'sync', this.selectFirst);
+
     this.videos.search('dogs');
 
-    // this.videos.collection = this.videos.search();
     this.render();
   },
 
@@ -33,6 +32,12 @@ var AppView = Backbone.View.extend({
     }).render();
 
     return this;
+  },
+
+  selectFirst: function() {
+    if (this.videos) {
+      this.videos.at(0).select();
+    }
   },
 
   template: templateURL('src/templates/app.html')
