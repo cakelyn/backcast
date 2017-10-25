@@ -7,9 +7,10 @@ var AppView = Backbone.View.extend({
 
     this.listenTo(this.videos, 'sync', this.selectFirst);
 
-    this.videos.search('dogs');
+    this.videos.search('doggos');
 
     this.render();
+    console.log(this.videos);
   },
 
   render: function() {
